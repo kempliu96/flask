@@ -1,17 +1,13 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-
 @app.route('/')
-def index():  # put application's code here
-    return 'Index Page'
-
-@app.route('/hello')
-def hello_world():  # put application's code here
-    return 'Hello World!'
-
+def index():
+    text= """
+    <h1>hello world</h1>
+    """
+    return render_template('jinja2.html', text=text)
 
 if __name__ == '__main__':
     app.run()
-    print('OK');

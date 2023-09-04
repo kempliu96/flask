@@ -1,13 +1,12 @@
 from flask import Flask, render_template
-
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    text= """
-    <h1>hello world</h1>
-    """
-    return render_template('jinja2.html', text=text)
+@app.route('/hello/<user>')
+def hello_name(user):
+    return render_template('temp.html', name = user)
 
 if __name__ == '__main__':
-    app.run()
+    app.run('0.0.0.0',80,debug = True)
+
+
+#https://www.freeaihub.com/flask/template.html
